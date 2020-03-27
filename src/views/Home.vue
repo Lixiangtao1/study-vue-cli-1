@@ -1,21 +1,26 @@
 <template>
-  <div class="home">
-    <span>进入vue-cli</span><br>
-    <router-link to="/about">切换页面</router-link>
-    <!-- <router-view>about</router-view> -->
-  </div>
+    <div class="container">
+        <p>这是Home页面</p>
+    </div>
 </template>
-
 <script>
 export default {
+    data () {
+        return {
 
+        }
+    },
+
+    computed: {
+        username () {
+            return this.$route.params.username;
+        } 
+    },
+
+    methods: {
+        goback() {
+            window.history.length > 1 ? this.$router.go(-1) : this.$router.push('/')
+        }
+    }
 }
 </script>
-
-<style lang="scss" scoped>
-  .home{
-    width: 100px;
-    height: 100px;
-    background-color: skyblue;
-  }
-</style>
